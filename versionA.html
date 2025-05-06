@@ -1,0 +1,16 @@
+<div class="banner" style="background-color: red; color: white;">
+    <marquee behavior="scroll" direction="left">FLASH</marquee>
+</div>
+
+<p>Find and click the word: <strong>APPLE</strong></p>
+<div id="word-grid"></div>
+<script>
+  const words = ["APPLE", "CHAIR", "HELLO", "MOUSE", "PLANE", "BRICK"];
+  const grid = document.getElementById("word-grid");
+  words.forEach(w => {
+    const span = document.createElement("span");
+    span.textContent = w;
+    span.onclick = () => alert(`You clicked: ${w}`);
+    grid.appendChild(span);
+  });
+</script>
