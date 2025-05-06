@@ -97,10 +97,12 @@
     </body>
     <script>
         const data = JSON.parse(localStorage.getItem("ab_click_data"));
+        
         if (data) {
+            const formattedTime = new Date(data.timestamp).toLocaleString();
             console.log("########## AB Test Data ##########");
             console.log("1) Version:", data.version);
-            console.log("2) Timestamp:", data.timestamp);
+            console.log("2) Timestamp:", formattedTime);
             console.log("3) Total Clicks on Page Before Button Click:", data.clickCount);
             console.log("########## AB Test Data ##########");
         } else {
