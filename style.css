@@ -1,0 +1,62 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+    line-height: 1.6;
+  }
+  h1, h2 {
+    text-align: center;
+  }
+  .target-word {
+    color: darkred;
+  }
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 20px;
+  }
+  .grid span {
+    padding: 8px 12px;
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .grid span:hover {
+    background: #ddd;
+  }
+  .banner {
+    width: 120px;
+    height: 40px;
+    line-height: 40px;
+    margin: 5px;
+    text-align: center;
+    font-weight: bold;
+    animation: blink 1.5s infinite alternate;
+  }
+  .red { background-color: red; }
+  .green { background-color: green; }
+  .white { color: white; }
+  .black { color: black; }
+  .banners {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  .button {
+    display: block;
+    text-align: center;
+    margin-top: 30px;
+    font-size: 16px;
+    background: #007acc;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  @keyframes blink {
+    from { opacity: 1; }
+    to { opacity: 0.3; }
+  }

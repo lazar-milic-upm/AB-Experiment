@@ -1,4 +1,14 @@
-<script>
-    const variant = Math.random() < 0.5 ? 'A' : 'B';
-    window.location.href = variant === 'A' ? 'versionA.html' : 'versionB.html';
-  </script>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>AB Test Redirect</title>
+        <script>
+            const variant = Math.random() < 0.5 ? 'versionA.html' : 'versionB.html';
+            window.location.href = variant;
+        </script>
+    </head>
+    <body>
+        <p>Redirecting you to the experiment...</p>
+    </body>
+</html>

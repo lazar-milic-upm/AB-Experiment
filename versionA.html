@@ -1,16 +1,23 @@
-<div class="banner" style="background-color: red; color: white;">
-    <marquee behavior="scroll" direction="left">FLASH</marquee>
-</div>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Experiment Version A</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>Find the word: <span class="target-word">APPLE</span></h1>
 
-<p>Find and click the word: <strong>APPLE</strong></p>
-<div id="word-grid"></div>
-<script>
-  const words = ["APPLE", "CHAIR", "HELLO", "MOUSE", "PLANE", "BRICK"];
-  const grid = document.getElementById("word-grid");
-  words.forEach(w => {
-    const span = document.createElement("span");
-    span.textContent = w;
-    span.onclick = () => alert(`You clicked: ${w}`);
-    grid.appendChild(span);
-  });
-</script>
+        <div class="banners">
+            <div class="banner red white">FLASH</div>
+            <div class="banner red white">SHINE</div>
+            <div class="banner red white">SPARK</div>
+        </div>
+
+        <div id="word-grid" class="grid"></div>
+
+        <a href="survey.html?version=A" class="button">Next</a>
+
+        <script src="script.js"></script>
+    </body>
+</html>
