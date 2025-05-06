@@ -2,27 +2,126 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Post-Task Survey</title>
+        <title>Survey</title>
         <link rel="stylesheet" href="style.css">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                max-width: 600px;
+                margin: 40px auto;
+                padding: 20px;
+                background-color: #f9f9f9;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            }
+        
+            h2 {
+                text-align: center;
+                color: #333;
+            }
+        
+            form {
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+            }
+        
+            .question-block {
+                background: #fff;
+                padding: 20px;
+                border-radius: 8px;
+                border: 1px solid #ddd;
+            }
+        
+            .question-block p {
+                margin-bottom: 10px;
+                font-weight: bold;
+                color: #444;
+                padding-bottom: 20px;
+            }
+        
+            .radio-group {
+                display: flex;
+                justify-content: space-between;
+                padding: 0 20px 10px;
+            }
+        
+            .radio-group label {
+                font-weight: normal;
+                color: #333;
+            }
+        
+            button {
+                width: 100%;
+                padding: 12px;
+                background-color: #007BFF;
+                color: white;
+                font-size: 16px;
+                border: none;
+                border-radius: 6px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+        
+            button:hover {
+                
+            }
+        </style>
     </head>
     <body>
-        <h2>Post-Task Survey</h2>
-        <form>
-            <p><strong>Which banner colors do you remember?</strong></p>
-            <input type="text" name="bgColor" placeholder="Background color">
-            <input type="text" name="textColor" placeholder="Text color">
-            <input type="text" name="word" placeholder="One word from banner">
-
-            <p><strong>How would you rate the banner design?</strong></p>
-            <label><input type="radio" name="appeal" value="1"> Very Poor</label>
-            <label><input type="radio" name="appeal" value="5"> Very Good</label>
-
-            <p><strong>Did the banner distract you?</strong></p>
-            <label><input type="radio" name="distraction" value="Yes"> Yes</label>
-            <label><input type="radio" name="distraction" value="No"> No</label>
-
-            <br><br>
+        <h2>Quick Survey</h2>
+        <form id="surveyForm">
+            <div class="question-block">
+                <p>How likely are you to click a button like this in real life?</p>
+                <div class="radio-group">
+                    <label><input type="radio" name="likelihood" value="1" required> 1</label>
+                    <label><input type="radio" name="likelihood" value="2"> 2</label>
+                    <label><input type="radio" name="likelihood" value="3"> 3</label>
+                    <label><input type="radio" name="likelihood" value="4"> 4</label>
+                    <label><input type="radio" name="likelihood" value="5"> 5</label>
+                </div>
+            </div>
+        
+            <div class="question-block">
+                <p>How visually appealing was the button?</p>
+                <div class="radio-group">
+                    <label><input type="radio" name="appeal" value="1" required> 1</label>
+                    <label><input type="radio" name="appeal" value="2"> 2</label>
+                    <label><input type="radio" name="appeal" value="3"> 3</label>
+                    <label><input type="radio" name="appeal" value="4"> 4</label>
+                    <label><input type="radio" name="appeal" value="5"> 5</label>
+                </div>
+            </div>
             <button type="submit">Submit</button>
         </form>
     </body>
+    <script>
+        const data = JSON.parse(localStorage.getItem("ab_click_data"));
+        if (data) {
+            console.log("AB Test Data:");
+            console.log("Version:", data.version);
+            console.log("Timestamp:", data.timestamp);
+            console.log("Total Clicks on Page Before Button:", data.clickCount);
+        } else {
+            console.log("No click data found.");
+        }
+        localStorage.removeItem("ab_click_data");
+
+        // Handle form submission
+        document.getElementById("surveyForm").addEventListener("submit", function (e) {
+            e.preventDefault(); // Prevent default form submission
+
+            const likelihood = document.querySelector('input[name="likelihood"]:checked')?.value;
+            const appeal = document.querySelector('input[name="appeal"]:checked')?.value;
+
+            alert(
+                `Thank you!\n\nYou rated:\n- Likelihood: ${likelihood}\n- Visual Appeal: ${appeal}\n\nYou'll now be redirected to the homepage.`
+            );
+
+            // Redirect after 1 second
+            setTimeout(() => {
+                window.location.href = "index.html";
+            }, 500);
+        });
+      </script>
 </html>
