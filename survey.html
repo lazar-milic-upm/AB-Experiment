@@ -98,10 +98,11 @@
     <script>
         const data = JSON.parse(localStorage.getItem("ab_click_data"));
         if (data) {
-            console.log("##### AB Test Data: #####");
+            console.log("########## AB Test Data ##########");
             console.log("1) Version:", data.version);
             console.log("2) Timestamp:", data.timestamp);
             console.log("3) Total Clicks on Page Before Button Click:", data.clickCount);
+            console.log("########## AB Test Data ##########");
         } else {
             console.log("No click data found.");
         }
