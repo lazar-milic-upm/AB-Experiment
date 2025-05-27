@@ -61,4 +61,7 @@ app.post('/clear-db', (_req, res) => {
   });
 });
 
+//  keep-alive ping 
+app.get('/ping', (_req, res) => res.send('pong'));
+
 app.listen(3000, () => console.log('Backend running on http://localhost:3000'));
