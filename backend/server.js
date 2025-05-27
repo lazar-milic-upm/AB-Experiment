@@ -25,7 +25,7 @@ db.run(`
 app.post('/submit', (req, res) => {
   // convert ISO to readable format before storing
   let { version, timestamp, clickCount, likelihood, appeal } = req.body;
-  timestamp = new Date(timestamp).toLocaleString();      // e.g. "5/27/2025, 15:08:32"
+  timestamp = new Date(timestamp).toLocaleString('es-ES', { timeZone: 'Europe/Madrid'});
 
   db.run(
     `INSERT INTO ab_data (version, timestamp, clickCount, likelihood, appeal)
