@@ -89,30 +89,67 @@
             </div>
             <button type="submit">Submit</button>
         </form>
+        <!-- ACTION BUTTONS AFTER SUBMIT  -->
+        <div id="afterSubmit" style="display:none; margin-top:30px; text-align:center;">
+            <button class="button" onclick="location.href='index.html'">Return Home</button>
+            <a  class="button" href="https://ab-experiment.onrender.com/download-db" target="_blank">
+                Download DB
+            </a>
+            <a  class="button" href="https://ab-experiment.onrender.com/export/json" target="_blank">
+                Export JSON
+            </a>
+            <button class="button danger" onclick="clearDB()">Clear&nbsp;Database</button>
+        </div>
         <script>
-            const data = JSON.parse(localStorage.getItem("ab_click_data"));
+            const data = JSON.parse(localStorage.getItem('ab_click_data'));
+
+            /* console log session info */
             if (data) {
-                const formattedTime = new Date(data.timestamp).toLocaleString();
-                console.log("AB Test Click Data:");
-                console.log("Version:", data.version);
-                console.log("Timestamp:", formattedTime);
-                console.log("Total Clicks on Page Before Button:", data.clickCount);
+              console.log('[A/B data]', {
+                ...data,
+                timestamp: new Date(data.timestamp).toLocaleString()
+              });
             }
-            document.getElementById("surveyForm").addEventListener("submit", function (e) {
-                e.preventDefault();
-                const likelihood = document.querySelector('input[name="likelihood"]:checked')?.value;
-                const appeal = document.querySelector('input[name="appeal"]:checked')?.value;
-                const payload = { ...data, likelihood: parseInt(likelihood), appeal: parseInt(appeal) };
-                fetch("https://ab-experiment.onrender.com/submit", {
-                    method: "POST",
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                }).then(res => {
-                    alert(`Thank you!\n\nYou rated:\n- Likelihood: ${likelihood}\n- Visual Appeal: ${appeal}\n\nYou'll now be redirected.`);
-                    localStorage.removeItem("ab_click_data");
-                    setTimeout(() => window.location.href = "index.html", 1000);
-                }).catch(() => alert("Error submitting your response."));
+
+            /* handle submit */
+            document.getElementById('surveyForm').addEventListener('submit', e => {
+              e.preventDefault();
+
+              const likelihood = +document.querySelector('input[name="likelihood"]:checked').value;
+              const appeal     = +document.querySelector('input[name="appeal"]:checked').value;
+
+              const payload = { ...data, likelihood, appeal };
+
+              fetch('https://ab-experiment.onrender.com/submit', {
+                method : 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body   : JSON.stringify(payload)
+              })
+              .then(() => {
+                alert(
+                  `You chose:\\n• Likelihood ${likelihood}\\n• Appeal ${appeal}`
+                );
+
+                /* Disable the survey */
+                document.querySelectorAll('#surveyForm input, #submitBtn')
+                        .forEach(el => el.disabled = true);
+
+                /* Reveal action buttons */
+                document.getElementById('afterSubmit').style.display = 'block';
+
+                localStorage.removeItem('ab_click_data');
+              })
+              .catch(() => alert('Error submitting your response.'));
             });
+
+            // ——— clear-database helper with confirmation ———
+            function clearDB() {
+                if (!confirm('This will delete ALL rows in the database. Continue?')) return;
+
+                fetch('https://ab-experiment.onrender.com/clear-db', { method: 'POST' })
+                  .then(() => alert('Database cleared.'))
+                  .catch(() => alert('Failed to clear DB'));
+            }
         </script>
     </body>
 </html>
