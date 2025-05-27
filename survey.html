@@ -87,18 +87,14 @@
                     <label><input type="radio" name="appeal" value="5"> 5</label>
                 </div>
             </div>
-            <button type="submit">Submit</button>
+            <button id="submitFormButton" type="submit">Submit</button>
         </form>
         <!-- ACTION BUTTONS AFTER SUBMIT  -->
-        <div id="afterSubmit" style="display:none; margin-top:30px; text-align:center;">
-            <button class="button" onclick="location.href='index.html'">Return Home</button>
-            <a  class="button" href="https://ab-experiment.onrender.com/download-db" target="_blank">
-                Download DB
-            </a>
-            <a  class="button" href="https://ab-experiment.onrender.com/export/json" target="_blank">
-                Export JSON
-            </a>
-            <button class="button danger" onclick="clearDB()">Clear&nbsp;Database</button>
+        <div id="afterSubmit" style="display:none; margin-top:30px; text-align:center; padding-top: 30px;">
+            <button class="button" style="background-color: green; color: white;" onclick="location.href='index.html'">Return Home</button>
+            <button class="button" style="background-color: #007BFF; color: white;" href="https://ab-experiment.onrender.com/download-db" target="_blank">Download DB</button>
+            <button class="button" style="background-color: #007BFF; color: white;" href="https://ab-experiment.onrender.com/export/json" target="_blank">Export JSON</button>
+            <button class="button" style="background-color: darkred; color: white;" onclick="clearDB()">Clear&nbsp;Database</button>
         </div>
         <script>
             const data = JSON.parse(localStorage.getItem('ab_click_data'));
@@ -131,7 +127,7 @@
                 );
 
                 /* Disable the survey */
-                document.querySelectorAll('#surveyForm input, #submitBtn')
+                document.querySelectorAll('#surveyForm input, #submitFormButton')
                         .forEach(el => el.disabled = true);
 
                 /* Reveal action buttons */
