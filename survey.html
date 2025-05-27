@@ -67,11 +67,14 @@
                   `You chose:\ \n \n • Likelihood ${likelihood}\ \n • Appeal ${appeal}`
                 );
 
-                /* Disable the survey */
-                document.querySelectorAll('#surveyForm input, #surveyForm #submitFormButton')
-                        .forEach(el => el.disabled = true);
-
-                document.querySelector('#submitFormButton').setAttribute('color-background: #F0F0F0');
+                /* Disable the entire survey (inputs + button) */
+                const form   = document.getElementById('surveyForm');
+                form.querySelectorAll('input, button').forEach(el => {
+                    el.disabled = true;            
+                    if (el.tagName === 'BUTTON') { 
+                        el.classList.add('disabled');
+                    }
+                });
 
                 /* Reveal action buttons */
                 document.getElementById('afterSubmit').style.display = 'block';
