@@ -87,7 +87,7 @@
                     <label><input type="radio" name="appeal" value="5"> 5</label>
                 </div>
             </div>
-            <button id="submitFormButton" type="submit">Submit</button>
+            <button id="submitFormButton" type="submit" form="surveyForm">Submit</button>
         </form>
         <!-- ACTION BUTTONS AFTER SUBMIT  -->
         <div id="afterSubmit" style="display:none; margin-top:30px; text-align:center;">
@@ -127,7 +127,7 @@
                 );
 
                 /* Disable the survey */
-                document.querySelectorAll('#surveyForm input, #submitFormButton')
+                document.querySelectorAll('#surveyForm input, #surveyForm button')
                         .forEach(el => el.disabled = true);
 
                 /* Reveal action buttons */
