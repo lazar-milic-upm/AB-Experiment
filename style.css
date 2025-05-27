@@ -74,18 +74,6 @@ form {
     color: #333;
 }
 
-button {
-    width: 100%;
-    padding: 12px;
-    background-color: #007BFF;
-    color: white;
-    font-size: 16px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
 button.disabled,
 button:disabled {
   background: #999 !important;   /* grey */
