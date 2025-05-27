@@ -1,0 +1,15 @@
+body {
+  font-family: Arial, sans-serif;
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.cta-button { padding: 12px 20px; margin-top: 20px; font-size: 16px; cursor: pointer; }
+.cta-button.blue { background: #007BFF; color: white; }
+.cta-button.green { background: #28A745; color: white; }
+.question-block { background: #fff; padding: 20px; margin-bottom: 20px; border: 1px solid #ddd; border-radius: 8px; }
+.radio-group { display: flex; justify-content: space-between; }
+button { background: #007BFF; color: white; padding: 10px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; }
