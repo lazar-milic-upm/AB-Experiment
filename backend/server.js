@@ -38,11 +38,15 @@ app.post('/submit', (req, res) => {
   );
 });
 
-//  GET  /export/json   → download all data as JSON
+//  DOWNLOAD JSON FILE 
 app.get('/export/json', (req, res) => {
   db.all('SELECT * FROM ab_data', (err, rows) => {
-    if (err) { console.error(err); return res.status(500).send('DB read error'); }
-    res.json(rows);
+    if (err) return res.status(500).send('DB read error');
+
+    const json = JSON.stringify(rows, null, 2);      // pretty-printed
+    res.header('Content-Type', 'application/json');
+    res.attachment('ab_data.json');                   // <-- turns into file download
+    res.send(json);
   });
 });
 
