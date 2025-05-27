@@ -49,7 +49,7 @@
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
       }).then(res => {
-        alert(`Thank you!\n\nYou rated:\n- Likelihood: ${likelihood}\n- Visual Appeal: ${appeal}\n\nYou'll now be redirected. ${payload}`);
+        alert(`Thank you!\n\nYou rated:\n- Likelihood: ${likelihood}\n- Visual Appeal: ${appeal}\n\nYou'll now be redirected. ${JSON.stringify(payload)}`);
         localStorage.removeItem("ab_click_data");
         setTimeout(() => window.location.href = "index.html", 1000);
       }).catch(() => alert("Error submitting your response."));
