@@ -52,7 +52,7 @@
         console.log("payload: " + payload);
         alert(`Thank you!\n\nYou rated:\n- Likelihood: ${likelihood}\n- Visual Appeal: ${appeal}\n\nYou'll now be redirected.`);
         localStorage.removeItem("ab_click_data");
-        setTimeout(() => window.location.href = "index.html", 1000);
+        //setTimeout(() => window.location.href = "index.html", 1000);
       }).catch(() => alert("Error submitting your response."));
     });
   </script>
