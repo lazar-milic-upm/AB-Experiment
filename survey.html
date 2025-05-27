@@ -49,6 +49,7 @@
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
       }).then(res => {
+        console.log("payload: " + payload);
         alert(`Thank you!\n\nYou rated:\n- Likelihood: ${likelihood}\n- Visual Appeal: ${appeal}\n\nYou'll now be redirected.`);
         localStorage.removeItem("ab_click_data");
         setTimeout(() => window.location.href = "index.html", 1000);
