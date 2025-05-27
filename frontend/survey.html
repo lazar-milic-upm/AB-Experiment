@@ -44,7 +44,7 @@
       const likelihood = document.querySelector('input[name="likelihood"]:checked')?.value;
       const appeal = document.querySelector('input[name="appeal"]:checked')?.value;
       const payload = { ...data, likelihood: parseInt(likelihood), appeal: parseInt(appeal) };
-      fetch("https://your-backend-name.onrender.com/submit", {
+      fetch("https://ab-experiment.onrender.com/submit", {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
