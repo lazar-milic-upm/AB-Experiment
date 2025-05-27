@@ -71,6 +71,8 @@
                 document.querySelectorAll('#surveyForm input, #surveyForm #submitFormButton')
                         .forEach(el => el.disabled = true);
 
+                document.querySelector('#submitFormButton').setAttribute('color-background: #F0F0F0');
+
                 /* Reveal action buttons */
                 document.getElementById('afterSubmit').style.display = 'block';
 
