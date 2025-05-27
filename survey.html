@@ -28,7 +28,7 @@
                     <label><input type="radio" name="appeal" value="5"> 5</label>
                 </div>
             </div>
-            <button id="submitFormButton" type="submit" form="surveyForm">Submit</button>
+            <button class="submitFormButton" id="submitFormButton" type="submit" form="surveyForm">Submit</button>
         </form>
         <!-- ACTION BUTTONS AFTER SUBMIT  -->
         <div id="afterSubmit" style="display:none; margin-top:30px; text-align:center;">
@@ -67,14 +67,11 @@
                   `You chose:\ \n \n • Likelihood ${likelihood}\ \n • Appeal ${appeal}`
                 );
 
-                /* Disable the entire survey (inputs + button) */
-                const form   = document.getElementById('surveyForm');
-                form.querySelectorAll('input, button').forEach(el => {
-                    el.disabled = true;            
-                    if (el.tagName === 'BUTTON') { 
-                        el.classList.add('disabled');
-                    }
-                });
+                /* Disable the survey */
+                document.querySelectorAll('#surveyForm input, #surveyForm #submitFormButton')
+                        .forEach(el => el.disabled = true);
+
+                document.getElementById('submitFormButton').classList.add('disabled');
 
                 /* Reveal action buttons */
                 document.getElementById('afterSubmit').style.display = 'block';
