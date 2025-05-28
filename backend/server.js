@@ -53,14 +53,6 @@ app.get('/export/json', (req, res) => {
 //  GET  /download-db   → raw SQLite file
 app.get('/download-db', (_req, res) => res.download('./database.sqlite'));
 
-//  POST /clear-db      → remove all rows (use with caution!)
-app.post('/clear-db', (_req, res) => {
-  db.run('DELETE FROM ab_data', err => {
-    if (err) { console.error(err); return res.status(500).send('Clear failed'); }
-    res.send('Database cleared.');
-  });
-});
-
 //  keep-alive ping 
 app.get('/ping', (_req, res) => res.send('pong'));
 
