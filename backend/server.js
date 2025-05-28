@@ -4,7 +4,7 @@ const sqlite3 = require('sqlite3').verbose();
 const cors = require('cors');
 
 const app = express();
-const db  = new sqlite3.Database('./database.sqlite');
+const db = new sqlite3.Database('/data/database.sqlite');
 
 app.use(cors());                 // allow calls from GitHub-Pages origin
 app.use(bodyParser.json());
