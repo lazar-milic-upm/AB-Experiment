@@ -51,7 +51,7 @@ app.get('/export/json', (req, res) => {
 });
 
 //  GET  /download-db   → raw SQLite file
-app.get('/download-db', (_req, res) => res.download('./database.sqlite'));
+app.get('/download-db', (_req, res) => res.download('/data/database.sqlite'));
 
 //  keep-alive ping 
 app.get('/ping', (_req, res) => res.send('pong'));
