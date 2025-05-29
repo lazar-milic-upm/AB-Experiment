@@ -1,5 +1,5 @@
 .cta-button{
-    padding:15px 30px;
+    padding:1rem 1rem;
     font-size:16px;
     border:none;
     border-radius:4px;
@@ -31,4 +31,42 @@
 .cta-button:active{
     transform:none;
     box-shadow:0 3px 5px rgba(0,0,0,.15);
+}
+.container p {
+        font-size: 1rem;
+}
+
+/* Medium screens (tablets) */
+@media (min-width: 480px) {
+
+    .btn-submit, .cta-button {
+        padding: 1rem;
+    }
+    .radio-buttons-div {
+        margin: auto;
+        max-width: 75%;
+    }
+}
+
+/* Small screens (phones) */
+@media (max-width: 480px) {
+    .container h1 {
+        font-size: 1.75rem;
+    }
+    .container p {
+        font-size: 0.85rem;
+    }
+    .cta-button {
+        font-size: 0.8rem;
+    }
+    .btn-submit, .cta-button {
+        padding: 0.75rem;
+    }
+    .radio-buttons-div {
+        max-width: 100%;
+        justify-content: center !important;
+    }
+    .form-check {
+        padding-right: 0.5rem;
+    }
 }
