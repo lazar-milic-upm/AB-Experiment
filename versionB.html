@@ -1,16 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <title>Experiment Version A</title>
+        <meta charset="UTF-8" />
+        <title>Experiment Version B</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
     </head>
-    <body>
-        <div class="product">
-            <h1>Amazing Product</h1>
-            <p>This product will change your life. Learn more about its features by clicking below.</p>
-            <button class="cta-button green" onclick="trackClick('B')">Learn More</button>
+    <body class="bg-light">
+        <div class="container py-5 w-50">
+            <div class="card shadow-lg text-center py-4 ">
+                <h1 class="pt-3 mb-3">Amazing Product</h1>
+                <p class="pt-4 pb-3">This product will change your life. Learn more about its features by clicking below.</p>
+                <button class="pb-3 mb-2 cta-button green align-self-center" onclick="trackClick('B')">Learn More</button>
+            </div>
         </div>
-        <script src="script.js"></script>
     </body>
+    <script src="script.js"></script>
 </html>
