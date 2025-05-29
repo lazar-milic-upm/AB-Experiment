@@ -23,16 +23,23 @@
     box-shadow:0 6px 12px rgba(0,0,0,.2);
     background:#2a69ad;
 }
+
 .cta-button.green:hover{
     transform:translateY(-2px);
     box-shadow:0 6px 12px rgba(0,0,0,.2);
     background:#2dbb4e;
 }
+
 .cta-button:active{
     transform:none;
     box-shadow:0 3px 5px rgba(0,0,0,.15);
 }
+
 .container p {
+    font-size: 1.2rem;
+}
+
+.radio-buttons-div {
     font-size: 1.1rem;
 }
 
