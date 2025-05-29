@@ -53,27 +53,41 @@
         margin: auto;
         max-width: 75%;
     }
+    .container p {
+        cursor: default;
+    }
 }
 
 /* Small screens (phones) */
 @media (max-width: 480px) {
+
+    .container {
+        padding-top: 1rem !important;
+    }
     .container h1 {
         font-size: 1.75rem;
     }
     .container p {
-        font-size: 0.85rem;
-    }
-    .cta-button {
-        font-size: 0.8rem;
+        font-size: 1.1rem;
+        cursor: default;
     }
     .btn-submit, .cta-button {
         padding: 0.75rem;
     }
     .radio-buttons-div {
-        max-width: 100%;
+        display: flex !important;
+        flex-direction: row !important;
         justify-content: center !important;
     }
     .form-check {
-        padding-right: 1.5rem;
+        margin: auto;
+    }
+    .download-buttons{
+        display: flex;
+        flex-direction: column !important;
+        align-items: center;
+    }
+    button {
+        min-width: 250px !important;
     }
 }
