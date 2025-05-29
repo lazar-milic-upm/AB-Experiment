@@ -111,7 +111,7 @@
         body: JSON.stringify(payload)
       })
       .then(() => {
-        alert(`Experiment Version: ${data.version}\n\nThank you for participanting!\n\nThis is your selection:\n\n• Likelihood: ${likelihood}\n• Appeal: ${appeal}`);
+        alert(`Thank you for participanting!\n\nThis is your selection:\n\n• Likelihood: ${likelihood}\n• Appeal: ${appeal}\n\n[Experiment Version: ${data.version}]`);
         document.querySelectorAll('#surveyForm input').forEach(el => el.disabled = true);
         document.getElementById('afterSubmit').classList.remove('d-none');
         localStorage.removeItem('ab_click_data');
