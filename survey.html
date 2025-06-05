@@ -71,7 +71,7 @@
 						<div class="d-flex justify-content-center flex-row pt-4">
 							<button class="btn btn-success py-2 shadow w-50" onclick="location.href='index.html'">Return Home</button>		
 						</div>
-						<div class="d-flex justify-content-center flex-row mt-4 gap-3 download-buttons" id="download-buttons">
+						<div class="d-flex justify-content-center flex-row mt-4 gap-3 download-buttons d-none" id="download-buttons">
 							<button class="btn btn-outline-primary py-2 w-50 shadow" onclick="window.open('https://ab-experiment.onrender.com/download-db','_blank')">Download DB (SQLite)</button>
 							<button class="btn btn-outline-primary py-2 w-50 shadow" onclick="window.open('https://ab-experiment.onrender.com/export/json','_blank')">Download DB (JSON)</button>
 						</div>
@@ -119,7 +119,6 @@
 			document.getElementById('submitFormButton').disabled = true;
 			document.getElementById('afterSubmit').classList.remove('d-none');
 			document.getElementById('download-buttons').classList.add('d-none');
-			console.log("LA FIGA");
 		}
 	</script>
 </html>
